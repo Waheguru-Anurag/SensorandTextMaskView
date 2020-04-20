@@ -1,0 +1,3 @@
+rootProject.name='Sensor and TextMask'
+include ':app'
+include ':sensorandtextmask'
