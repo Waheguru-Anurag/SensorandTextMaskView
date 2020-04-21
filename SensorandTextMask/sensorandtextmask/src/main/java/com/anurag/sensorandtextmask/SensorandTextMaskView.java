@@ -89,7 +89,7 @@ public class SensorandTextMaskView extends androidx.appcompat.widget.AppCompatTe
         height = h;
         createBitmaps(w, h);
         if (mBackground != null) {
-            mBackground.setBounds((int)(-w/2),(int)(-h/2),(int)(1800), (int)(2000));
+            mBackground.setBounds((int)(-w/2),(int)(-h/2),(int)(Math.sqrt(3)*w), (int)(1.25*height));
             coverDrawable.setBounds(0,0,w,h);
         }
     }
@@ -186,9 +186,9 @@ public class SensorandTextMaskView extends androidx.appcompat.widget.AppCompatTe
         SensorManager.getOrientation(rotationMatrix, orientationAngles);
         String r = getRotation(getContext());
         if(r.equals("portrait") | r.equals("reverse portrait"))
-            mBackground.setBounds((int)((-1*width/4)*(Math.cos(orientationAngles[2])+1)),(int)((-1*height/4)*(Math.cos(orientationAngles[1])+1)),1800,2000);
+            mBackground.setBounds((int)((-1*width/4)*(Math.cos(orientationAngles[2])+1)),(int)((-1*height/4)*(Math.cos(orientationAngles[1])+1)),(int)(Math.sqrt(3)*width),(int)(1.25*height));
         else
-            mBackground.setBounds((int)((-1*width/4)*(Math.cos(orientationAngles[2]))+1),(int)((-1*height/4)*(Math.cos(orientationAngles[1])+1)),2000,1800);
+            mBackground.setBounds((int)((-1*width/4)*(Math.cos(orientationAngles[2]))+1),(int)((-1*height/4)*(Math.cos(orientationAngles[1])+1)),(int)(1.25*width),(int)(Math.sqrt(3)*height));
         setBackgroundDrawable(mBackground);
 
         // "mOrientationAngles" now has up-to-date information.
